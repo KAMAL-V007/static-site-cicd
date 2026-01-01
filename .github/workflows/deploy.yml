@@ -1,0 +1,23 @@
+name: Deploy to EC2 
+on: 
+  push: 
+    branches:
+       - main    
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Checkout code
+       uses: actions/checkout@v4 
+      
+     - name: Deploy to Server
+       uses: easingthemes/ssh-deploy@v2.1.5  
+       env:
+         SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+         REMOTE_HOST: ${{ secrets.HOST_DNS }}
+         REMOTE_USER: ubuntu
+         SOURCE: "."      
+         TARGET: "..."     
+
