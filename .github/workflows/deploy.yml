@@ -19,5 +19,5 @@ jobs:
          REMOTE_HOST: ${{ secrets.HOST_DNS }}
          REMOTE_USER: ubuntu
          SOURCE: "."      
-         TARGET: "..."     
+         TARGET: "/var/www/html/"     
 
